@@ -102,7 +102,7 @@ class WebToLead
     {
 
         $this->salesforceDebugEmail   = $salesforceDebugEmail;
-        $this->defaultFields['debug'] = $this->salesforceDebugEmail;
+        $this->defaultFields['debugEmail'] = $this->salesforceDebugEmail;
 
         return $this;
     }
@@ -145,7 +145,7 @@ class WebToLead
     {
 
         // Debug Check: If debug enabled, check that debug email is set
-        if ($this->salesforceDebug && is_string($this->salesforceDebugEmail) && $this->salesforceDebugEmail != '') {
+        if ($this->salesforceDebug && (!is_string($this->salesforceDebugEmail) || $this->salesforceDebugEmail == '')) {
             throw new \InvalidArgumentException('With debug mode enabled, you must set the debug email address.');
         }
 

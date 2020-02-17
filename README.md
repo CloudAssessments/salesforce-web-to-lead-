@@ -42,6 +42,30 @@ $form
     );
 ```
 
+### Using Debug
+
+```php
+<?php
+
+use CloudAssessments\Salesforce\WebToLead;
+
+$form = new WebToLead();
+$form
+    ->setSalesforceAccountIdentifier('YourAccountID')
+    ->setSalesforceDebug(true)
+    ->setSalesforceDebugEmail('debug@example.com')
+    ->submit(                                          
+        [                                              
+            'first_name'      => 'John',               
+            'last_name'       => 'Doe',                
+            'email'           => 'johndoe@example.com',
+            'phone'           => '555-123-4567',       
+            'company'         => 'Acme Inc.',          
+            'lead_source'     => 'Web-to-Lead',        
+        ]                                              
+    );
+```
+
 ### Custom Fields
 
 The fields provided in the example above are simply the default Salesforce fields that everyone has.
